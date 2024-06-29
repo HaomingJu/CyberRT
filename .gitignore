@@ -19,3 +19,10 @@ log/*
 *.INFO*
 !log/.gitkeep
 .cache
+
+cyber/proto/*.pb.cc
+cyber/proto/*.pb.h
+cyber/proto/*.py
+cyber/examples/proto/*.pb.h
+cyber/examples/proto/*.pb.cc
+cyber/examples/proto/*.py
