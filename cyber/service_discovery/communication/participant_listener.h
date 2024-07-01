@@ -31,14 +31,14 @@ namespace service_discovery {
 class ParticipantListener : public eprosima::fastrtps::ParticipantListener {
  public:
   using ChangeFunc = std::function<void(
-      const eprosima::fastrtps::ParticipantDiscoveryInfo& info)>;
+      const eprosima::fastrtps::rtps::ParticipantDiscoveryInfo& info)>;
 
   explicit ParticipantListener(const ChangeFunc& callback);
   virtual ~ParticipantListener();
 
   virtual void onParticipantDiscovery(
       eprosima::fastrtps::Participant* p,
-      eprosima::fastrtps::ParticipantDiscoveryInfo info);
+      eprosima::fastrtps::rtps::ParticipantDiscoveryInfo info);
 
  private:
   ChangeFunc callback_;

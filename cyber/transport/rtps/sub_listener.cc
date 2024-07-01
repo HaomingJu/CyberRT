@@ -39,7 +39,7 @@ void SubListener::onNewDataMessage(eprosima::fastrtps::Subscriber* sub) {
   UnderlayMessage m;
 
   RETURN_IF(!sub->takeNextData(reinterpret_cast<void*>(&m), &m_info));
-  RETURN_IF(m_info.sampleKind != eprosima::fastrtps::ALIVE);
+  RETURN_IF(m_info.sampleKind != eprosima::fastrtps::rtps::ALIVE);
 
   // fetch MessageInfo
   char* ptr =
@@ -67,7 +67,7 @@ void SubListener::onNewDataMessage(eprosima::fastrtps::Subscriber* sub) {
 
 void SubListener::onSubscriptionMatched(
     eprosima::fastrtps::Subscriber* sub,
-    eprosima::fastrtps::MatchingInfo& info) {
+    eprosima::fastrtps::rtps::MatchingInfo& info) {
   (void)sub;
   (void)info;
 }

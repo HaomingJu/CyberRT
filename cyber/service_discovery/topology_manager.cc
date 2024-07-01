@@ -142,14 +142,14 @@ bool TopologyManager::Convert(const PartInfo& info, ChangeMsg* msg) {
   OperateType opt_type = OperateType::OPT_JOIN;
 
   switch (status) {
-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::DISCOVERED_RTPSPARTICIPANT:
+    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::DISCOVERED_PARTICIPANT:
       participant_name = info.rtps.m_RTPSParticipantName;
       participant_names_[guid] = participant_name;
       opt_type = OperateType::OPT_JOIN;
       break;
 
-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::REMOVED_RTPSPARTICIPANT:
-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::DROPPED_RTPSPARTICIPANT:
+    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::REMOVED_PARTICIPANT:
+    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::DROPPED_PARTICIPANT:
       if (participant_names_.find(guid) != participant_names_.end()) {
         participant_name = participant_names_[guid];
         participant_names_.erase(guid);
