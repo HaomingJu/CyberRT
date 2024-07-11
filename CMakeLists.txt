@@ -105,6 +105,9 @@ file(GLOB CYBER_PROTO_FILES
 )
 
 if(${CYBER_MSGS_CACHE})
+  if(NOT Protobuf_PROTOC_EXECUTABLE)
+    message(FATAL_ERROR "### not found protoc, please try run `sudo apt install protobuf-compiler`")
+  endif()
   set(CYBER_MSGS_CACHE OFF CACHE BOOL "generate cyber proto msgs flag." FORCE)
   FOREACH(FIL ${CYBER_PROTO_FILES})
     message("### generate proto file: ${FIL}")
