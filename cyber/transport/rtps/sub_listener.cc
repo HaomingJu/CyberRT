@@ -34,7 +34,7 @@ void SubListener::onNewDataMessage(eprosima::fastrtps::Subscriber* sub) {
   std::lock_guard<std::mutex> lock(mutex_);
 
   // fetch channel name
-  auto channel_id = common::Hash(sub->getAttributes().topic.getTopicName());
+  auto channel_id = common::Hash(sub->getAttributes().topic.getTopicName().to_string());
   eprosima::fastrtps::SampleInfo_t m_info;
   UnderlayMessage m;
 
